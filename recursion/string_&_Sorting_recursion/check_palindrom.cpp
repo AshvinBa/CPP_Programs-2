@@ -16,7 +16,7 @@ bool func(string str, int n, int i, int j)
 }
 int main()
 {
-    string str = "anana";
+    string str = "an546ana";
     int n = str.length();
     bool x = func(str, n, 0, n - 1);
     if (x == 1)
