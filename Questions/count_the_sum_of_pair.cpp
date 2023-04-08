@@ -11,7 +11,7 @@ int getPairs(int arr[],int n,int k)
         int b=k-arr[i];
         if(m[b])
         {
-            ans++;
+            ans+=m[b];//ans++;
         }
         m[arr[i]]++;
     }
