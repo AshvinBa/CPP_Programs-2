@@ -1,30 +1,38 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-    while( p2>=0)
+long long maxProduct(vector<int> arr, int n) {
+    int maxp=INT16_MIN;
+    int prod=1;
+    for(int i=0;i<n;i++)
     {
-        if(p1>=0 && nums1[p1]>nums2[p2])
+        prod*=arr[i];
+        maxp=max(maxp,prod);
+        if(prod==0)
         {
-            nums1[i--]=nums1[p1--];
-        }
-        else
-        {
-            nums1[i--]=nums2[p2--];
+            prod=1;
         }
     }
 
-    for(int i=0;i<nums1.size();i++)
+    prod=1;
+    for(int i=n-1;i>0;i--)
     {
-        cout<<nums1[i]<<" ";
+        prod*=arr[i];
+        maxp=max(maxp,prod);
+        if(prod==0)
+        {
+            prod=1;
+        }
+    }
+    return maxp;
     }
 
+int main(){
+    vector<int>vec{6, -3, -10, 0, 2};
+    int n=vec.size();
+    cout<<"Answer: "<<maxProduct(vec,n);
+return 0;
 }
-int main()
-{
-    vector<int> vec1{1, 2, 3, 3, 4, 5};
-    vector<int> vec2{1, 3, 3, 4, 5, 6};
-    int n = sizeof(vec1);
-    int m = sizeof(vec2);
-    merge(vec1, n, vec2, m);
-    return 0;
-}
+
+

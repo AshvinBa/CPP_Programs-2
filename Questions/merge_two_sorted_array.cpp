@@ -29,5 +29,10 @@ int main()
     int n = sizeof(vec1);
     int m = sizeof(vec2);
     merge(vec1, n, vec2, m);
+    cout<<"Answer: ";
+    for(int i=0;i<vec1.size();i++)
+    {
+        cout<<vec1[i]<<" ";
+    }
     return 0;
 }

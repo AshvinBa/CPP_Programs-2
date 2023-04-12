@@ -42,7 +42,7 @@ vector<int> subarraySum(vector<int>arr, int n, long long s)
 //{ Driver Code Starts.
 
 int main()
- {
+{
     vector<int>arr{1,2,3,4};
     int s=0;
     int n=4;
