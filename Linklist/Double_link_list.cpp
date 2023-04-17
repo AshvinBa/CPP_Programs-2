@@ -81,6 +81,7 @@ void insertAtHead(Node *&head, Node *&tail, int d)
         Node *temp = new Node(d);
         temp->next = head;
         head->prev = temp;
+        temp->next = head;
         head = temp;
     }
 }
@@ -136,7 +137,6 @@ void insertAtPosition(Node *&tail, Node *&head, int position, int d)
 void deleteNode(Node *&tail, Node *&head, int position)
 {
     Node *temp = head;
-    int len = getLen(head);
     if (position == 1)
     {
         // memory manage for head
@@ -175,11 +175,12 @@ void deleteNode(Node *&tail, Node *&head, int position)
 }
 
 int main()
-{
+{                              
 
     Node *head = NULL;
     Node *tail = NULL;
     int s;
+    
     do
     {
         cout << "\n\n   ***Operations in Double Link_List*** ";
@@ -192,6 +193,7 @@ int main()
         cout << "\n\t7) Exit.";
         cout << "\n\tEnter Your choise: ";
         cin >> s;
+    
         switch (s)
         {
         case 1:
