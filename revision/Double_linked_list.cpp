@@ -118,23 +118,6 @@ int search(Node* head,int ele)
     return -1;
 }
 
-void reverse(Node* head,Node* tail)
-{
-    if(tail==NULL || tail->next==NULL)
-    {
-        cout<<"Empty.";
-    }
-
-    Node* temp2=NULL;
-    Node* temp1=tail;
-    Node* blank=NULL;
-    // Node* forward=NULL;
-    while(temp1!=NULL)
-    {
-                
-    }
-}
-
 void delete_element(Node *&head, Node *&tail, int position)
 {
     Node *temp = head;
@@ -184,7 +167,6 @@ int main()
     insert_at_tail(head, tail, 60);
     display(head);
     cout<<endl;
-    reverse(head,tail);
 
     return 0;
 }
