@@ -32,7 +32,7 @@ the majority element.
 #include <bits/stdc++.h>
 using namespace std;
 int check(int a[], int n)
-{
+{    
     int elem = 0;
     int cnt = 0;
     for (int i = 0; i < n; i++)
@@ -70,3 +70,20 @@ int main()
     cout << res;
     return 0;
 }
+
+/*
+App-2
+
+unordered_map<int,int>mp;
+    for(int i=0;i<n;i++)
+    {
+        mp[a[i]]++;
+    }
+    for(auto it:mp)
+    {
+        if(it.second>n/2)
+        return it.first;
+    }
+    return -1;
+
+*/
