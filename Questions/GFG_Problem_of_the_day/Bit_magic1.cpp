@@ -54,7 +54,7 @@ int bitMagic(vector<int>&arr,int n)
 }
 
 int main(){
-    vector<int> arr{1,0,0,0};
+    vector<int> arr{1,1,1,1,1,1};
     int n=arr.size();
     cout<<"Answer: "<<bitMagic(arr,n);    
 return 0;
