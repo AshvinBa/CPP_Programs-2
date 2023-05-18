@@ -19,6 +19,7 @@ Explaination: There is only one cell(1,1). So train can only start from (1,1). O
 Therefore there is no cell from where train can start and remain inside the grid after tracing the route.
 */
 
+/*
 #include<iostream>
 using namespace std;
 
@@ -67,3 +68,61 @@ int main(){
     cout<<"Answer: "<<isPossible(n, m, s);
 return 0;
 }
+
+*/
+
+#include<iostream>
+using namespace std;
+
+int isPossible(int n,int m,string s)
+{
+    int side=0,down=0;
+    int maxside,maxdown,minside,mindown;
+    maxside=maxdown=minside=mindown=0;
+
+    for(auto i:s)
+    {
+        if(i=='L')
+        side--;
+        else if(i=='R')
+        side++;
+        else if(i=='U')
+        down++;
+        else
+        down--;
+
+        maxdown=max(maxdown,down);
+        mindown=min(mindown,down);
+
+        maxside=max(maxside,side);
+        minside=min(minside,side);
+    }
+
+    if(maxside + abs(minside)+1 > m)
+    return 0;
+
+    if(maxdown + abs(mindown)+1 > n)
+    return 0;
+
+    return 1;
+
+}
+
+int main(){
+    string s="LLRU";
+    int n=2,m=3;
+    cout<<"Answer: "<<isPossible(n, m, s);
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
