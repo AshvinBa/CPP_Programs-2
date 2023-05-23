@@ -77,7 +77,7 @@ void deleteNode(int position, Node *&head)
     {
         Node *temp = head;
         head = head->next;
-        head->next = NULL;
+        temp->next = NULL;
         delete temp;
     }
     else
@@ -138,7 +138,8 @@ int main(){
     InsertAttail(tail,15);
     print(head);
 
-    // deleteNode(1,head);
-    // print(head);   
+    deleteNode(1,head);
+    print(head);
+
 return 0;
 }
