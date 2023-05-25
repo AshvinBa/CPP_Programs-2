@@ -54,7 +54,7 @@ class node{
     }  
 };
 
-node* help(int index,int start,int end,int pre[],int preMirror[],int n)
+node* help(int &index,int start,int end,int pre[],int preMirror[],int n)
 {
     if(index>=n or start>end)
     return NULL;
