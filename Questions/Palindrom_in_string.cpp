@@ -23,7 +23,7 @@ int palindrom(string s)
 }
 
 int main(){
-    string s="abba";
+    string s="a1bb1a";
     int x=palindrom(s);
     if(x)
     {
