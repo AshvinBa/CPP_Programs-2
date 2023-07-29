@@ -63,5 +63,5 @@ int main()
     int n = sizeof(a) / sizeof(a[0]);
     int k = 1 cour << "\nAnswer: " << maximizeSum(long long int a[], int n, int k)
 
-                                          return 0;
+    return 0;
 }
