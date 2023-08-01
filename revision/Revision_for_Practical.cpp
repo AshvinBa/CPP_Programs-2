@@ -16,7 +16,7 @@ void heapify(int arr[],int n,int i)
     {
         large=right;
     }
-
+    
     if(large!=i)
     {
         swap(arr[large],arr[i]);
@@ -29,13 +29,14 @@ void heap_sort(int arr[],int n)
     int size=n;
     while(size>1)
     {
-        swap(arr[size],arr[1]);
+        swap(arr[1],arr[size]);
         size--;
+    
         heapify(arr,size,1);
     }
 }
 
-int build_Heap(int arr[],int n)
+void build_Heap(int arr[],int n)
 {
     for(int i=n/2;i>0;i--)
     {
@@ -43,24 +44,28 @@ int build_Heap(int arr[],int n)
     }
 }
 
-int main(){
+void print(int arr[],int n)
+{
+    cout<<"\nSorted Array: ";
+    for(int i=1;i<=n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+
+int main()
+{
     int n;
     cout<<"Enter the Limit: ";
     cin>>n;
 
     int arr[n];
-    cout<<"Enter the values: ";
+    cout<<"\nEnter the values: "; 
     for(int i=1;i<=n;i++)
     {
         cin>>arr[i];
     }
-
     build_Heap(arr,n);
     heap_sort(arr,n);
-    cout<<"\nThe Sorted Array is: ";
-    for(int i=1;i<=n;i++)
-    {
-        cout<<arr[i]<<" ";
-    }
-return 0;
+    print(arr,n);
 }
