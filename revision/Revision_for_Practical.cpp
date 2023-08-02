@@ -793,3 +793,229 @@ int main(){
 return 0;
 }
 */
+/*
+// Tree with NonRecursive sol
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+    public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val)
+    {
+        data=val;
+        left=NULL;
+        right=NULL;
+    }
+};
+
+Node* buildTree(Node* &root)
+{
+    int val;
+    cout<<"Enter the data: ";
+    cin>>val;
+
+    if(val==-1)
+    {
+        return NULL;
+    }
+    root=new Node(val);
+
+    cout<<"at left: "<<val<<endl;
+    root->left=buildTree(root->left);
+
+    cout<<"at right: "<<val<<endl;
+    root->right=buildTree(root->right);
+
+    return root;
+}
+
+void inorder(Node* root)
+{
+    stack<Node*>s;
+    Node* T=root;
+
+    while(T!=NULL)
+    {
+        s.push(T);
+        T=T->left;
+    }
+    while(!s.empty())
+    {
+        T=s.top();
+        s.pop();
+        cout<<"->"<<T->data;
+        T=T->right;
+        while(T!=NULL)
+        {
+            s.push(T);
+            T=T->left;
+        }
+    }
+}
+
+int main(){
+    Node* root=NULL;
+    buildTree(root);
+    cout<<"The Traversal Element is: ";
+    inorder(root);
+return 0;
+}
+*/
+
+/*
+#include<iostream>
+using namespace std;
+
+char stack[200];
+int top=-1;
+
+void push(char x)
+{
+    stack[++top]=x;
+}
+
+char pop()
+{
+    if(top==-1)
+    return -1;
+    else
+    return stack[top--];
+}
+
+int priority(char x)
+{
+    if(x=='(')
+    {
+        return 0;
+    }
+    if(x=='+' || x=='-')
+    {
+        return 1;
+    }
+    if(x=='*' || x=='/')
+    {
+        return 2;
+    }
+}
+
+int main(){
+    char exp[200];
+    char *e,x;
+    
+    cout<<"Enter the expression: ";
+    cin>>exp;
+
+    e=exp;
+
+    while(*e!='\0')
+    {
+        if(isalnum(*e))
+        {
+            cout<<*e;
+        }
+        else if(*e=='(')
+        {
+            push(*e);
+        }
+        else if(*e==')')
+        {
+            while((x=pop())!='(')
+            cout<<x;            
+        }
+        else
+        {
+            while(priority(stack[top])>=priority(*e))
+            cout<<pop();
+
+            push(*e);
+        }
+        e++;
+
+    }
+    while(top!=-1)
+    {
+        cout<<pop();
+    }
+    
+return 0;
+}
+*/
+/*
+
+#include<iostream>
+using namespace std;
+
+void heapify(int arr[],int n,int i)
+{
+    int large=i;
+    int left=2*i;
+    int right=2*i-1;
+
+    if(left<=n && arr[large]<arr[left])
+    {
+        large=left;
+    }
+    if(right<=n && arr[large]<arr[right])
+    {
+        large=right;
+    }
+    
+    if(large!=i)
+    {
+        swap(arr[large],arr[i]);
+        heapify(arr,n,large);
+    }
+}
+
+void build_heap(int arr[],int n)
+{
+    for(int i=n/2;i>0;i--)
+    {
+        heapify(arr,n,i);
+    }
+}
+
+void sort(int arr[],int n)
+{
+    int size=n;
+    while(size>1)
+    {
+        swap(arr[1],arr[size]);
+        size--;
+
+        heapify(arr,size,1);
+    }
+}
+
+void display(int arr[],int n)
+{
+    for(int i=1;i<=n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+
+int main(){
+    int n;
+    cout<<"Enter the limit: ";
+    cin>>n;
+    int arr[n];
+    
+    cout<<"Enter the values: ";
+    for(int i=1;i<=n;i++)
+    {
+        cin>>arr[i];
+    }
+    build_heap(arr,n);
+    cout<<"Sorted array: ";
+    sort(arr,n);
+    display(arr,n);
+return 0;
+}
+*/
