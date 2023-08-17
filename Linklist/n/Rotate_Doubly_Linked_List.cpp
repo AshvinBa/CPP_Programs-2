@@ -28,9 +28,12 @@ using namespace std;
 struct Node {
     int data;
     struct Node *next;
+    struct Node *prev;
+
     Node(int x) {
         data = x;
         next = NULL;
+        prev = NULL;
     }
 };
 
@@ -59,7 +62,9 @@ class Solution
         }
         
         temp->next=head;
+        head->prev=temp;
         head=curr->next;
+        head->prev=NULL;
         curr->next=NULL;
         return head;
     }
