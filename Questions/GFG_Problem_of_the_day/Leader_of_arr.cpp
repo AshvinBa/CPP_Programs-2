@@ -48,11 +48,8 @@ vector<int> leaders(int a[], int n)
         ans.push_back(num);
         // s.pop();
     }
-
     return ans;
 }
-
-//{ Driver Code Starts.
 
 int main()
 {
