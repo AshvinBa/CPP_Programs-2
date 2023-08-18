@@ -1,5 +1,6 @@
 /*
 Second most repeated string in a sequence
+
 Given a sequence of strings, the task is to find out the second most repeated (or frequent) string in the given sequence.
 
 Note: No two strings are the second most repeated, there will be always a single string.
