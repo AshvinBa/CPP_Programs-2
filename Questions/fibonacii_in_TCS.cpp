@@ -27,12 +27,10 @@
 //         {
 //             return (fibo(n-1)+fibo(n-2));
 //         }
-//     }
-    
+//     }    
 //     vector<int > printFibb(int n) 
 //     {
 //         vector<int >ans;
-        
 //         for(int i=1;i<=n;i++)
 //         {
 //             int num=fibo(i);
