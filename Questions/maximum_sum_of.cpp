@@ -29,7 +29,7 @@ Constraints:
 
 */
 #include<iostream>
-#i
+#include<bits/stdc++.h>
 using namespace std;
 
 int Maximize(int a[],int n)
