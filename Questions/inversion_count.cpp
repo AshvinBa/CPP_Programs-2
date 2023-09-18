@@ -60,10 +60,65 @@ long long int inversionCount(long long arr[], long long N)
     }
 */
 
+long long int  merge1(long long arr[],long long temp[],int left,int mid,long long right)
+    {
+        long long int i,j,k,inv=0;
+        i=left;
+        j=mid;
+        k=left;
+        
+        while((i<=mid-1)and(j<=right))
+        {
+            if(arr[i]<=arr[j])
+            {
+                temp[k++]=arr[i++];
+            }
+            else
+            {
+                temp[k++]=arr[j++];
+                inv+=(mid-i);
+            }
+            
+        }
+        while(i<=mid-1)
+        {
+            temp[k++]=arr[i++];
+        }
+        while(j<=right)
+        {
+            temp[k++]=arr[j++];
+        }
+        for(int m=left;m<=right;m++)
+        {
+            arr[m]=temp[m];
+        }
+        return inv;
+    }
+    
+    long long int mergeSort(long long arr[],long long temp[],int left,long long right)
+    {
+        long long int inv=0;
+        
+        if(left<right)
+        {
+            int mid=(left+right)/2;
+            inv+=mergeSort(arr,temp,left,mid);
+            inv+=mergeSort(arr,temp,mid+1,right);
+            inv+=merge1(arr,temp,left,mid+1,right);
+        }
+        return inv;
+    }
+    
+    long long int inversionCount(long long arr[], long long N)
+    {
+        long long temp[N];
+        long long int n=mergeSort(arr,temp,0,N-1);
+        return n;
+    }
 
 int main(){
     long long N=5;
     long long arr[]={2,4,1,3,5};
-    cout<<"Answer: "<<inversionCount( arr, N)
+    cout<<"Answer: "<<inversionCount( arr, N);
 return 0;
 }
