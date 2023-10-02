@@ -1,3 +1,12 @@
+/*
+fibonacci Series.
+Enter the number and it give you a fibonacci series oup to that number.
+Example-1
+IP:
+int n=10
+Answer: 0 1 1 2 3 5 8 13 21 34 
+*/ 
+
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
