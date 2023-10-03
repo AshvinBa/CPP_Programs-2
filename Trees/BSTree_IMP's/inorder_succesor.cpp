@@ -1,8 +1,7 @@
 /*
-
-Inorder Predecessor.
-
+Inorder Successor.
 */
+
 #include<bits/stdc++.h>
 #include<iostream>
 using namespace std;
@@ -64,7 +63,7 @@ void takeInput(Node* &root)
     }
 }
 
-int predecessor(Node* root,int val)
+int Successor(Node* root,int val)
 {
     vector<int>ans;
     inOrder(root,ans);
@@ -73,7 +72,7 @@ int predecessor(Node* root,int val)
     {
         if(ans[i]==val)
         {
-            return ans[i-1];
+            return ans[i+1];
         }
     }
     return -1;
@@ -87,6 +86,6 @@ int main(){
     cout<<endl;
     cout<<"Enter the values: ";
     cin>>val;
-    cout<<"Answer: "<<predecessor(root,val)<<" ";
+    cout<<"Answer: "<<Successor(root,val)<<" ";
 return 0;
 }

@@ -1,8 +1,7 @@
 /*
-
-Inorder Predecessor.
-
+Check BST(Binary Search Tree.)
 */
+
 #include<bits/stdc++.h>
 #include<iostream>
 using namespace std;
@@ -23,14 +22,26 @@ class Node
     }
 };
 
-void inOrder(Node* root,vector<int>&ans)
+vector<int> inOrder(Node* root)
 {
-    if(root==NULL)
-    return;
+    vector<int>ans;
 
-    inOrder(root->left,ans);
+    if(root==NULL)
+    return ans;
+
+    inOrder(root->left);
     ans.push_back(root->data);
-    inOrder(root->right,ans);
+    inOrder(root->right);
+}
+
+bool isBST(vector<int>ans)
+{
+    for(int i=0;i<ans.size();i++)
+    {
+        if(ans[i]>ans[i+1])
+        return false;
+    }
+    return true;
 }
 
 Node* insertIntoTree(Node *root,int d)
@@ -64,29 +75,20 @@ void takeInput(Node* &root)
     }
 }
 
-int predecessor(Node* root,int val)
-{
-    vector<int>ans;
-    inOrder(root,ans);
-
-    for(int i=0;i<ans.size();i++)
-    {
-        if(ans[i]==val)
-        {
-            return ans[i-1];
-        }
-    }
-    return -1;
-}
 
 int main(){
     Node* root=NULL;
     cout<<"Enter the values: ";
-    takeInput(root);    
-    int val;
-    cout<<endl;
-    cout<<"Enter the values: ";
-    cin>>val;
-    cout<<"Answer: "<<predecessor(root,val)<<" ";
+    takeInput(root);
+    vector<int>ans=inOrder(root);    
+
+    if(isBST(ans))
+    {
+        cout<<"Yes.";
+    }
+    else
+    {
+        cout<<"No.";
+    }
 return 0;
 }
