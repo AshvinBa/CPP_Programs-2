@@ -102,6 +102,5 @@ void moveZeroes(struct Node **head)
             prev=temp;
             temp=temp->next;
         }
-    }
-    
+    }    
 }
