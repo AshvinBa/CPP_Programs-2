@@ -10,6 +10,7 @@ int main()
     int ans = 0;
     int count = 0;
     int digit = 0;
+ 
     while (t != 0)
     {
         digit = t % 10;
