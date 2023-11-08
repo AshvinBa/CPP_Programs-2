@@ -73,9 +73,9 @@ using namespace std;
 
 int main(){
     int n;
-    vector<vector<int>>vec(n,vector<int>(n));
     cout<<"Enter the value of row and column: ";
     cin>>n;
+    vector<vector<int>>vec(n,vector<int>(n));
     cout<<"Enter the values: ";
     for(int i=0;i<n;i++)
     {
