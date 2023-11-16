@@ -34,9 +34,34 @@ Constraints:
 #include<iostream>
 using namespace std;
 
+bool isRotated(string s1,string s2)
+{
+    int n=s1.length();
+    if(n==2)
+    return s1==s2;
+
+    for(int i=0;i<n;i++)
+    {
+        if(s1[(i+2)%n]==s2[i] || s1[(n+i-2)%n]==s2[i])
+        continue;
+        else
+        return false;
+    }
+    return true;
+}
 
 int main(){
 
+    string s1="amazon";
+    string s2="azonam";
+    if(isRotated(s1,s2))
+    {
+        cout<<"Yes its rotated from two side.";
+    }
+    else
+    {
+        cout<<"No its not rotated from two side.";
+    }
     
 return 0;
 }
