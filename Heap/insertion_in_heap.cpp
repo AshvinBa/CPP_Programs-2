@@ -1,3 +1,6 @@
+
+/*
+
 #include <iostream>
 using namespace std;
 
@@ -63,6 +66,93 @@ int main()
     h1.print();
     return 0;
 }
+
+*/
+
+
+#include<iostream>
+using namespace std;
+
+class heap{
+    public:
+    int arr[100];
+    int size=0;
+
+    heap()
+    {
+        arr[0]=-1;
+        size=0;
+    }
+
+    void insert(int x)
+    {
+        size=size+1;
+        int index=size;
+        arr[index]=x;
+
+        while(index>1)
+        {
+            int parent=index/2;
+
+            if(arr[parent]<arr[index])
+            {
+                swap(arr[parent],arr[index]);
+                index=parent;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void print()
+    {
+        cout<<"The velues of heaps are: ";
+        for(int i=1;i<=size;i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+    }
+};
+
+int main(){
+    int arr[]={50,55,53,52,54,56};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    heap h;
+    for(int i=0;i<n;i++)
+    {
+        h.insert(arr[i]);
+    }
+    h.print();
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+/*
 #include<iostream>
 using namespace std;
 
@@ -100,3 +101,148 @@ int main()
     h1.print();
     return 0;
 }
+
+*/
+
+#include<iostream>
+using namespace std;
+
+class heap{
+    public:
+    int arr[100];
+    int size=0;
+
+    heap()
+    {
+        arr[0]=-1;
+        size=0;
+    }
+
+    void insert(int x)
+    {
+        size=size+1;
+        int index=size;
+        arr[index]=x;
+
+        while(index>1)
+        {
+            int parent=index/2;
+
+            if(arr[parent]<arr[index])
+            {
+                swap(arr[parent],arr[index]);
+                index=parent;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    void print()
+    {
+        cout<<"The velues of heaps are: ";
+        for(int i=1;i<=size;i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+    }
+
+    void deletefrom()
+    {
+        if(size==0)
+        {
+            cout<<"No element.";
+            return;
+        }
+
+        arr[1]=arr[size];
+
+        size--;
+
+        int i=1;
+        while(i<size)
+        {
+            int leftIndex=2*i;
+            int rightIndex=2*i+1;
+
+            if(leftIndex<size and arr[leftIndex]>arr[i])
+            {
+                swap(arr[leftIndex],arr[i]);
+                i=leftIndex;
+            }
+            else if(rightIndex<size and arr[rightIndex]>arr[i])
+            {
+                swap(arr[rightIndex],arr[i]);
+                i=rightIndex;
+            }
+            else
+            {
+                return;
+            }
+        }   
+    }
+};
+
+int main(){
+    int arr[]={50,55,53,52,54,56};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    heap h;
+    for(int i=0;i<n;i++)
+    {
+        h.insert(arr[i]);
+    }
+    h.print();
+    h.deletefrom();
+    cout<<endl;
+    h.print();
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
