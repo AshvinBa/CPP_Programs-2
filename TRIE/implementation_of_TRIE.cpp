@@ -104,8 +104,10 @@ int main(){
     t->insertWord("ARM");
     t->insertWord("DO");
     t->insertWord("TIME");
+    t->insertWord("dtfhrfhurfyxhnd36784s5163g163g163g786sey9rdg6541fd65vhg41364154657488");
+    t->insertWord("dtfhrfhurfyxhnd36784s5163g163");
 
-    cout<<"Present or not: "<<t->search("TIM");
+    cout<<"Present or not: "<<t->search("dtfhrfhurtfjhgnfdcrtnghfyxhnd36784s5163g163g163g786sey9rdg6541fd65vhg41364154657488");
 return 0;
 }
 
