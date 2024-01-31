@@ -5,7 +5,6 @@ Consider a rat placed at (0, 0) in a square matrix of order N * N. It has to rea
 Note: In a path, no cell can be visited more than one time. If the source cell is 0, the rat cannot move to any other cell.
 
 Example 1:
-
 Input:
 N = 4
 m[][] = {{1, 0, 0, 0},
@@ -19,6 +18,7 @@ The rat can reach the destination at
 (3, 3) from (0, 0) by two paths - DRDDRR
 and DDRDRR, when printed in sorted order
 we get DDRDRR DRDDRR.
+
 Example 2:
 Input:
 N = 2
