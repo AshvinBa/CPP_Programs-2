@@ -1,3 +1,6 @@
+/*
+
+// Implementation of Graph by using List.
 // #include<bit/stc++.h>
 #include<bits/stdc++.h>
 #include<iostream>
@@ -60,3 +63,87 @@ int main(){
     g.printAdjList();
 return 0;
 }
+*/
+
+
+
+/* Implementation of Graph by using SET.*/
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+class Graph
+{
+    public:
+    unordered_map<int,set<int>>adj;
+
+    void addEdge(int u,int v,bool direction)
+    {
+        adj[u].insert(v);
+
+        if(direction==0)
+        {
+            adj[v].insert(u);
+        }
+    }
+
+    void printAdj()
+    {
+        for(auto x:adj)
+        {
+            cout<<x.first<<" -> ";
+            for(auto i:x.second)
+            {
+                cout<<i<<" ,";
+            }
+            cout<<endl;
+        }
+    }
+
+};
+
+int main(){
+    int n,m;
+    cout<<"Enter the number of Nodes: ";
+    cin>>n;
+
+    cout<<"Enter the number of Edges: ";
+    cin>>m;
+
+    Graph g;
+    cout<<"Enter the values of U and V: ";
+    for(int i=0;i<m;i++)
+    {
+        int u,v;
+        cin>>u>>v;
+        g.addEdge(u,v,0);
+    }
+    cout<<"The Adjancy List is: "<<endl;
+
+    g.printAdj();
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
