@@ -31,59 +31,108 @@
 // }
 
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int p,q,n,phi,d,e,i,ct,pt;
+//     cout<<"Enter the First prime Number: ";
+//     cin>>p;
+//     cout<<"Enter the Second prime Number: ";
+//     cin>>q;
+
+//     n=p*q;
+//     phi=(p-1)*(q-1);
+
+//     cout<<"Choose e such that it is relatively prime to: "<<phi<<" : ";
+//     cin>>e;
+
+//     for(d=1;d<phi;d++)
+//     {
+//         if(((d*e)%phi)==1)
+//         break;
+//     }
+
+//     cout<<"Enter the plain text char: ";
+//     cin>>pt;
+
+//     ct=1;
+//     for(i=0;i<e;i++)
+//     {
+//         ct=ct*pt%n;
+//     }
+//     cout<<"After Encryption: "<<ct<<endl;
+//     pt=1;
+//     for(i=0;i<d;i++)
+//     {
+//         pt=pt*ct%n;
+//     }
+//     cout<<"After Decryption: "<<pt<<endl;
+//     return 0;
+// }
 
 
-
-
-#include <iostream>
-#include <cmath>
-
+#include<bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-    int p, q, n, phi, d, e, i, CT, PT;
+    int p,q,e,n,phi,pt,ct,i,d;
 
-    // Input the first prime number
-    cout << "Enter First Prime number: ";
-    cin >> p;
+    cout<<"Enter the First prime Number: ";
+    cin>>p;
 
-    // Input the second prime number
-    cout << "Enter Second Prime number: ";
-    cin >> q;
+    cout<<"Enter the second prime Number: ";
+    cin>>q;
 
-    // Calculate n and phi
-    n = p * q;
-    phi = (p - 1) * (q - 1);
+    n=p*q;
+    phi=(p-1)*(q-1);
 
-    // Choose e such that it is relatively prime to phi
-    cout << "Choose e such that it is relatively prime to " << phi << ": ";
-    cin >> e;
-
-    // Calculate d (private key)
-    for (d = 1; d < phi; d++)
+    cout<<"Choose e such that it is relatively prime to: "<<phi<<" : ";
+    cin>>e;
+    
+    for(d=1;d<phi;d++)
     {
-        if (((d * e) % phi) == 1)
-            break;
+        if(((d*e)%phi)==1)
+        break;
     }
 
-    // Input the plain text character
-    cout << "Enter the plain text char: ";
-    cin >> PT;
+    cout<<"Enter the plain text: ";
+    cin>>pt;
 
-    // Encryption: CT = (PT^e) % n
-    CT = 1;
-    for (i = 0; i < e; i++)
-        CT = (CT * PT) % n;
+    ct=1;
+    for(i=0;i<e;i++)
+    {
+        ct=ct*pt%n;
+    }
+    cout<<"After Encryption: "<<ct<<endl;
 
-    cout << "After Encryption: " << CT << endl;
-
-    // Decryption: PT = (CT^d) % n
-    PT = 1;
-    for (i = 0; i < d; i++)
-        PT = (PT * CT) % n;
-
-    cout << "After Decryption: " << PT << endl;
-
+    pt=1;
+    for(i=0;i<d;i++)
+    {
+        pt=pt*ct%n;
+    }
+    cout<<"After Decryption: "<<pt<<endl;
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
