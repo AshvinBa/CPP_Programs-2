@@ -40,22 +40,65 @@
 // }
 
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int i,j,l,cnt,count[50]={0};
+//     char str[10];
+
+//     cout<<"Enter the string: ";
+//     cin>>str;
+
+//     cout<<"\nOriginal string: ";
+//     cout<<str;
+
+//     l=sizeof(str)/sizeof(str[0]);
+
+//     cout<<"\nThe Encoded String is: ";
+
+//     for(i=0;i<l;i*=1)
+//     {
+//         j=0;
+//         count[i]=1;
+
+//         do{
+//             j++;
+//             if(str[i+j]==str[i])
+//             {
+//                 count[i]++;
+//             }
+//         }
+//         while(str[i+j]==str[i]);
+
+//         if(count[i]==1)
+//         {
+//             cout<<str[i++];
+//         }
+//         else
+//         {
+//             cout<<count[i]<<str[i];
+//             i+=count[i];
+//         }
+//     }
+//     return 0;
+// }
+
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int i,j,l,cnt,count[50]={0};
+    int l,i,j,count[100]={0};
     char str[10];
 
-    cout<<"Enter the string: ";
+    cout<<"Enter the values: ";
     cin>>str;
-
-    cout<<"\nOriginal string: ";
-    cout<<str;
 
     l=sizeof(str)/sizeof(str[0]);
 
-    cout<<"\nThe Encoded String is: ";
+    cout<<"The Original value is: "<<str<<endl;
+    cout<<"The Encoded string is: ";
 
     for(i=0;i<l;i*=1)
     {
@@ -64,17 +107,17 @@ int main()
 
         do{
             j++;
-            if(str[i+j]==str[i])
+            if(str[i]==str[i+j])
             {
                 count[i]++;
             }
         }
-        while(str[i+j]==str[i]);
+        while (str[i]==str[i+j]);
 
         if(count[i]==1)
         {
             cout<<str[i++];
-        }
+        }        
         else
         {
             cout<<count[i]<<str[i];
@@ -83,3 +126,26 @@ int main()
     }
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -65,31 +65,63 @@
 // }
 
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     string msg="ASHVINSUDHIRBARI";
+//     char key='$';
+//     string CTxt="";
+//     string DTxt="";
+//     for(int i=0;i<msg.length();i++)
+//     {
+//         int xor_val=key^msg[i];
+//         char temp=static_cast<char>(xor_val);
+//         CTxt+=temp;
+//     }
+//     cout<<"The Original Message is: "<<msg<<endl;
+//     cout<<"The Encrypted Message is: "<<CTxt<<endl;
+//     for(int i=0;i<CTxt.length();i++)
+//     {
+//         int xor_val=key^CTxt[i];
+//         char temp=static_cast<char>(xor_val);
+//         DTxt+=temp;
+//     }
+//     cout<<"The Decryption Message is: "<<DTxt<<endl;
+//     return 0;
+// }
+
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    string msg="ASHVINSUDHIRBARI";
+    string msg="SSBTCOETJALGAON";
     char key='$';
     string CTxt="";
     string DTxt="";
+    cout<<"The Original Message is: "<<msg<<endl;
     for(int i=0;i<msg.length();i++)
     {
         int xor_val=key^msg[i];
-        char temp=static_cast<char>(xor_val);
-        CTxt+=temp;
+        char temp1=static_cast<char>(xor_val);
+        CTxt+=temp1;
     }
-    cout<<"The Original Message is: "<<msg<<endl;
-    cout<<"The Encrypted Message is: "<<CTxt<<endl;
+    cout<<"The Text after Encryption: "<<CTxt<<endl;
+
     for(int i=0;i<CTxt.length();i++)
     {
         int xor_val=key^CTxt[i];
-        char temp=static_cast<char>(xor_val);
-        DTxt+=temp;
+        char temp2=static_cast<char>(xor_val);
+        DTxt+=temp2;
     }
-    cout<<"The Decryption Message is: "<<DTxt<<endl;
+    cout<<"The Text after Decryption: "<<DTxt<<endl;
+
     return 0;
 }
+
+
+
 
 
 

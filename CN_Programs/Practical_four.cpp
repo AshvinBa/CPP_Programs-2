@@ -72,49 +72,92 @@
 // }
 
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int p,q,e,n,phi,pt,ct,i,d;
+
+//     cout<<"Enter the First prime Number: ";
+//     cin>>p;
+
+//     cout<<"Enter the second prime Number: ";
+//     cin>>q;
+
+//     n=p*q;
+//     phi=(p-1)*(q-1);
+
+//     cout<<"Choose e such that it is relatively prime to: "<<phi<<" : ";
+//     cin>>e;
+    
+//     for(d=1;d<phi;d++)
+//     {
+//         if(((d*e)%phi)==1)
+//         break;
+//     }
+
+//     cout<<"Enter the plain text: ";
+//     cin>>pt;
+
+//     ct=1;
+//     for(i=0;i<e;i++)
+//     {
+//         ct=ct*pt%n;
+//     }
+//     cout<<"After Encryption: "<<ct<<endl;
+
+//     pt=1;
+
+//     for(i=0;i<d;i++)
+//     {
+//         pt=pt*ct%n;
+//     }
+//     cout<<"After Decryption: "<<pt<<endl;
+//     return 0;
+// }
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int p,q,e,n,phi,pt,ct,i,d;
-
-    cout<<"Enter the First prime Number: ";
+    int phi,e,i,d,n,q,p,ptxt,ctxt;
+    cout<<"Enter the first prime number: ";
     cin>>p;
-
-    cout<<"Enter the second prime Number: ";
+    cout<<"Enter the second prime number: ";
     cin>>q;
 
     n=p*q;
     phi=(p-1)*(q-1);
-
-    cout<<"Choose e such that it is relatively prime to: "<<phi<<" : ";
-    cin>>e;
     
+    cout<<"Enter the value of e : ";
+    cin>>e;
+
+
     for(d=1;d<phi;d++)
     {
         if(((d*e)%phi)==1)
-        break;
+        break;  
     }
 
     cout<<"Enter the plain text: ";
-    cin>>pt;
+    cin>>ptxt;
 
-    ct=1;
+    ctxt=1;
     for(i=0;i<e;i++)
     {
-        ct=ct*pt%n;
+        ctxt=ctxt*ptxt%n;
     }
-    cout<<"After Encryption: "<<ct<<endl;
+    cout<<"After Encryption: "<<ctxt<<endl;
 
-    pt=1;
+    ptxt=1;
     for(i=0;i<d;i++)
     {
-        pt=pt*ct%n;
+        ptxt=ptxt*ctxt%n;
     }
-    cout<<"After Decryption: "<<pt<<endl;
+    cout<<"After Decryption: "<<ptxt<<endl;    
+
     return 0;
 }
-
 
 
 
