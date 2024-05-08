@@ -35,6 +35,9 @@ using namespace std;
 class Solution{
   public:
     //Function to find triplets with zero sum.
+
+    // Bruthforce Approach
+    /*
     bool findTriplets(int arr[], int n)
     { 
         for(int i=0;i<n;i++)
@@ -51,6 +54,30 @@ class Solution{
             }
         }
         return false;
+    }
+    */
+
+   // Optimize Solution.
+   bool findTriplets(int arr[], int n)
+    { 
+        sort(arr,arr+n);
+        
+        for(int i=0;i<n;i++)
+        {
+            int j=i+1;
+            int r=n-1;
+            while(j<r)
+            {
+                int sum=arr[i]+arr[j]+arr[r];
+                if(sum==0)
+                return 1;
+                else if(sum<0)
+                j++;
+                else
+                r--;
+            }
+        }
+        return 0;
     }
 };
 
