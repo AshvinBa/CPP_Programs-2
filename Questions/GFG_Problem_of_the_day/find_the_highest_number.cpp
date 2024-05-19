@@ -47,11 +47,8 @@ public:
         int e=a.size()-1;
         int mid=(s+e)/2;
         
-        if(e==0)
-        {
-            return a[mid];
-        }
-        
+        if(e==0)return a[mid];
+               
         while(s<=e)
         {
             if(a[mid] > a[mid-1] && a[mid] > a[mid+1])
