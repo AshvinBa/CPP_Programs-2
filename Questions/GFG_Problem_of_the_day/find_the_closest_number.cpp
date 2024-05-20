@@ -37,12 +37,9 @@ Constraints:
 */
 
 
-//{ Driver Code Starts
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-
-// } Driver Code Ends
 
 class Solution{
     public:
@@ -64,34 +61,26 @@ class Solution{
         }
         return digit;
     }
-
-
-    // int findClosest( int n, int k,int arr[]) 
-    // { 
-    //     int s=0;
-    //     int e=n-1;
-    //     int mid=(s+e)/2;
-    //     int digit=-1;
-    //     int mini=INT_MAX;
-    //     while(s<=e)
-    //     {
-    //         if(abs(arr[mid]-k)<=mini)
-    //         {
-    //             mini=abs(arr[mid]-k);
-    //             if(arr[mid]>digit)
-    //             {
-    //                 digit=arr[mid];
-    //             }
-    //             s=mid+1;
-    //         }
-    //         else
-    //         {
-    //             e=mid-1;
-    //         }
-    //         mid=(s+e)/2;
-    //     }
-    //     return digit;
-    // }
+    
+    int findClosestOptimal( int n, int k,int arr[]) 
+    { 
+        int s=0;
+        int e=n-1;
+        int mid=(s+e)/2;
+        int ans=-1;
+        int mini=INT_MAX;
+        while(s<=e)
+        {
+            mid=(s+e)/2;
+            int digit = abs(arr[mid]-k);
+            ans = digit<=mini?(digit==mini?ans=max(arr[mid],ans):ans=arr[mid]):ans;
+            mini=min(mini,digit);
+            if(arr[mid]<=k)s=mid+1;
+            else e=mid-1;
+        }
+        return ans;
+        
+    }
 };
 
 
@@ -116,5 +105,7 @@ int main()
         Solution ob;
         cout<<"Answer: ";
         cout<<ob.findClosest(n,k,arr)<<endl;
+        cout<<ob.findClosestOptimal(n,k,arr)<<endl;
+
     }
 }
