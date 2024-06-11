@@ -29,11 +29,6 @@ All the elements of arrays 'nuts' and 'bolts' should be unique.
 */
 
 
-#include <bits/stdc++.h>
-using namespace std;
-
-class Solution {
-  public:
     /* Approach - 1. */
     // void matchPairs(int n, char nuts[], char bolts[]) 
     // {
@@ -41,30 +36,94 @@ class Solution {
     //     sort(bolts,bolts+n);       
     // }
 
-    void matchPairs(int n, char nuts[], char bolts[])
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  public:
+
+  int quickSort(char arr[],int s,int e)
     {
-
-        quick(nuts , bolts)
-
+        int pivot = arr[s];
+        
+        int cnt=0;
+        
+        for(int i=s+1;i<=e;i++)
+        {
+            if(arr[i]<=pivot)
+            {
+                cnt++;
+            }
+        }
+        
+        int pivotIndex = s+cnt;
+        
+        swap(arr[pivotIndex],arr[s]);
+        
+        int i=s,j=e;
+        
+        
+        while( i < pivotIndex && j > pivotIndex )
+        {
+            while(arr[i]<=pivot)
+            {
+                i++;
+            }
+            while(arr[j]>=pivot)
+            {
+                j--;
+            }
+            if(i<pivotIndex && j>pivotIndex)
+            {
+                swap(arr[i++],arr[j--]);
+            }
+        }
+        return pivotIndex;
     }
+  
+    void partition(char arr[],int s,int e)
+    {
+        if(s>=e)
+        return;
+        
+        int p=quickSort(arr,s,e);
+        
+        partition(arr,s,p-1);
+        partition(arr,p+1,e);
+    }
+
+    
+    void matchPairs(int n, char nuts[], char bolts[]) {
+        
+        partition(nuts,0,n-1);
+        partition(bolts,0,n-1);
+        
+    }
+
 
 };
 
 int main() {
     int t;
+    cout<<"Enter the number of test cases: ";
     cin >> t;
     while (t--) {
         int n;
+        cout<<"Entre the size of the nuts and bolts: ";
         cin >> n;
         char nuts[n], bolts[n];
+        cout<<"Enter the values: ";
         for (int i = 0; i < n; i++) {
             cin >> nuts[i];
         }
+        cout<<"Enter the values: ";
         for (int i = 0; i < n; i++) {
             cin >> bolts[i];
         }
         Solution ob;
+        cout<<"Solution of the nuts and bolts: ";
         ob.matchPairs(n, nuts, bolts);
+        cout<<"\n";
         for (int i = 0; i < n; i++) {
             cout << nuts[i] << " ";
         }
